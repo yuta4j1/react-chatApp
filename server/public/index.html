@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+<title>react chat</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div id="connected"></div>
+        <input type="text" class="input-text" />
+        <button class="send-button">send message</button>
+        <ul class="message-area"></ul>
+    </ul>
+    <script>
+        var socket = io('http://localhost:1234/');
+        var $msg = document.querySelector('.input-text');
+        var $button = document.querySelector('.send-button');
+        var $ul = document.querySelector('.message-area');
+        console.log($button)
+
+        function messagePost() {
+            socket.emit('message', $msg.value);
+        }
+        $button.addEventListener('click', function() {
+            messagePost();
+        });
+        socket.on('message', function(msg) {
+            var $li = document.createElement('li');
+            $li.textContent = msg;
+            $ul.appendChild($li);
+
+        })
+        
+    </script>
+</body>
