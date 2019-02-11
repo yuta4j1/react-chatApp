@@ -22,7 +22,7 @@
     "webpack-cli": "^3.2.3"
   },
   "scripts": {
-    "build": "prettier --config ./.prettierrc --write ./src/**/*.ts | webpack --mode=production",
-    "serve": "prettier --config ./.prettierrc --write ./src/**/*.ts | webpack --mode=development"
+    "build": "prettier --config ./.prettierrc --write ./src/**/*.{ts,tsx,css} | webpack --mode=production",
+    "serve": "prettier --config ./.prettierrc --write ./src/**/*.{ts,tsx,css} | webpack --mode=development"
   }
 }
