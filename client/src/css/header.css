@@ -1,18 +1,18 @@
 .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    list-style: none;
-    background-color: #00E676;
-    margin: 0px 0px;
-    height: 4em;
-  }
-  
-  .navbar li {
-    margin-right: auto;
-  }
-  
-  .logoTitle {
-    font-size: 1.5em;
-    color: #FFFFFF;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  background-color: #00e676;
+  margin: 0px 0px;
+  height: 4em;
+}
+
+.navbar li {
+  margin-right: auto;
+}
+
+.logoTitle {
+  font-size: 1.5em;
+  color: #ffffff;
+}
