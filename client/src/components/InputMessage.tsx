@@ -1,21 +1,20 @@
 import * as React from 'react';
 import * as styles from '../css/inputMessage';
+import { sendMessage } from '../service/socket';
 
-interface MessageState {
+interface State {
   type: string;
   value: string;
 }
 
-interface MessageProps {
-  value: string;
-}
+type Props = { value: string; reflectChannel: (m: Message) => void };
 
-class IntputMessage extends React.Component<MessageProps, MessageState> {
-  constructor(props: MessageProps) {
+class IntputMessage extends React.Component<Props, State> {
+  constructor(props: Props) {
     super(props);
     this.state = {
       type: 'text',
-      value: props.value
+      value: ''
     };
   }
   updateState(e: React.FormEvent<HTMLInputElement>) {
@@ -24,8 +23,16 @@ class IntputMessage extends React.Component<MessageProps, MessageState> {
       value: e.currentTarget.value
     });
   }
+  send() {
+    let msg: Message = {
+      type: 'text',
+      value: this.state.value
+    };
+    sendMessage(msg);
+  }
 
   render() {
+    const sendButtonLabel = '送信';
     return (
       <div className={styles.inputWrap}>
         <input
@@ -35,6 +42,9 @@ class IntputMessage extends React.Component<MessageProps, MessageState> {
           onChange={e => this.updateState(e)}
           value={this.state.value}
         />
+        <button className={styles.sendButton} onClick={() => this.send()}>
+          {sendButtonLabel}
+        </button>
       </div>
     );
   }
