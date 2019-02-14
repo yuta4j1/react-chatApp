@@ -1,0 +1,9 @@
+.panelContainer {
+  display: flex;
+  align-items: center;
+  margin: 0px 15%;
+}
+
+.panelItem {
+  margin: 0px 10px;
+}
