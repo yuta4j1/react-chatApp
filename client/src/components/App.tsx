@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Header from './Header';
 import InputMessage from './InputMessage';
+import ChannelLine from './ChannelLine';
 import * as styles from '../css/app.css';
 
 type State = {
@@ -21,6 +22,8 @@ class App extends React.Component<{}, State> {
     this.setState({
       messages: arr
     });
+    // debug
+    console.log(this.state.messages);
   }
 
   render() {
@@ -30,7 +33,9 @@ class App extends React.Component<{}, State> {
         <div className={styles.header}>
           <Header value={logoTitle} />
         </div>
-        <div className={styles.body} />
+        <div className={styles.body}>
+          <ChannelLine messages={this.state.messages} />
+        </div>
         <div className={styles.footer}>
           <InputMessage
             value={''}
