@@ -23,6 +23,12 @@
   outline: 0;
 }
 
+.sendButton {
+  border-radius: 10px;
+  margin-left: 19px;
+  cursor: pointer;
+}
+
 .input-message:focus {
   animation-name: focustext;
   animation-duration: 3s;
