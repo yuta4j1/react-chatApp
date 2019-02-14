@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as styles from '../css/inputMessage';
+import * as styles from '../css/inputMessage.css';
 import { sendMessage } from '../service/socket';
 
 interface State {
@@ -23,12 +23,13 @@ class IntputMessage extends React.Component<Props, State> {
       value: e.currentTarget.value
     });
   }
-  send() {
+  async send() {
     let msg: Message = {
       type: 'text',
       value: this.state.value
     };
-    sendMessage(msg);
+    const onMessage: Message = await sendMessage(msg);
+    this.props.reflectChannel(onMessage);
   }
 
   render() {
