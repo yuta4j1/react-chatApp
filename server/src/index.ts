@@ -19,9 +19,9 @@ app.get('/', (req: Express.Request, res: Express.Response) => {
 });
 
 io.on('connection', (socket: Socket) => {
-  console.log('♰ user connected ♰');
-  socket.on('message', (msg: string) => {
-    console.log('message log # ', msg);
+  console.log('user connected');
+  socket.on('message', (msg: Message) => {
+    console.log('message log # ', msg.value);
     io.emit('message', msg);
   });
 });
