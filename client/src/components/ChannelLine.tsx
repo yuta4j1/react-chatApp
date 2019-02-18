@@ -13,15 +13,15 @@ class ChannelLine extends React.Component<ChannelLineProps, ChannelLineState> {
   constructor(props: ChannelLineProps) {
     super(props);
     this.state = {
-      messages: []
+      messages: this.props.messages
     };
   }
 
   render() {
     return (
       <div>
-        {this.state.messages.map(msg => {
-          return <MessagePanel message={msg} />;
+        {this.state.messages.map((msg: Message, idx: number) => {
+          return <MessagePanel key={idx} message={msg} />;
         })}
       </div>
     );

@@ -14,7 +14,7 @@ class MessagePanel extends React.Component<PanelProps, {}> {
         </div>
         <div className={styles.panelItem}>
           <div>ユーザ名</div>
-          <div>{this.props.message}</div>
+          <div>{this.props.message.value}</div>
         </div>
       </div>
     );
