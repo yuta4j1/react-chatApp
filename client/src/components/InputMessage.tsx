@@ -28,6 +28,8 @@ class IntputMessage extends React.Component<Props, State> {
       type: 'text',
       value: this.state.value
     };
+    // state reset
+    this.setState({ type: 'text', value: '' });
     const onMessage: Message = await sendMessage(msg);
     this.props.reflectChannel(onMessage);
   }
